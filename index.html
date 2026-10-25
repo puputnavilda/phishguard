@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard | Cyber Security</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND GRID -->
+    <div class="grid-background"></div>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">⌁</span>
+            <span>PHISH<span class="blue">GUARD</span></span>
+        </div>
+
+        <div class="nav-menu">
+            <a href="#beranda">Beranda</a>
+            <a href="#deteksi">Deteksi</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#riwayat">Riwayat</a>
+            <a href="#tentang">Tentang</a>
+        </div>
+
+        <a href="#deteksi" class="nav-button">
+            Scan URL
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <span></span>
+                CYBER SECURITY SYSTEM
+            </div>
+
+            <h1>
+                Lindungi Dirimu dari
+                <span>Website Phishing.</span>
+            </h1>
+
+            <p>
+                Analisis URL mencurigakan dan kenali potensi
+                ancaman phishing sebelum kamu memasukkan
+                informasi pribadi.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#deteksi" class="primary-button">
+                    Mulai Scan
+                    <span>→</span>
+                </a>
+
+                <a href="#tentang" class="secondary-button">
+                    Pelajari Phishing
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+                    <strong>24/7</strong>
+                    <span>Monitoring</span>
+                </div>
+
+                <div>
+                    <strong>URL</strong>
+                    <span>Analysis</span>
+                </div>
+
+                <div>
+                    <strong>SECURE</strong>
+                    <span>Protection</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CYBER VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="circle circle-one"></div>
+            <div class="circle circle-two"></div>
+
+            <div class="security-card">
+
+                <div class="card-top">
+
+                    <span class="live-dot"></span>
+
+                    <span>
+                        SECURITY STATUS
+                    </span>
+
+                </div>
+
+                <div class="shield-large">
+                    🛡️
+                </div>
+
+                <h3>
+                    System Protected
+                </h3>
+
+                <p>
+                    PhishGuard is ready to
+                    analyze suspicious URLs.
+                </p>
+
+                <div class="scan-line"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCANNER -->
+    <section class="scanner-section" id="deteksi">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                <span></span>
+                URL SECURITY SCANNER
+            </div>
+
+            <h2>
+                Periksa <span>Keamanan URL</span>
+            </h2>
+
+            <p>
+                Masukkan URL website yang ingin kamu analisis.
+            </p>
+
+        </div>
+
+
+        <div class="scanner-box">
+
+            <div class="input-label">
+                WEBSITE URL
+            </div>
+
+            <div class="scanner-input">
+
+                <div class="url-icon">
+                    🔗
+                </div>
+
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://contoh-website.com"
+                >
+
+                <button onclick="checkURL()">
+                    ANALYZE
+                    <span>→</span>
+                </button>
+
+            </div>
+
+            <div class="scanner-info">
+
+                <span>🔒 Data diproses secara lokal</span>
+
+                <span>⚡ Analisis cepat</span>
+
+                <span>🛡️ Security indicators</span>
+
+            </div>
+
+        </div>
+
+
+        <div id="result"></div>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section class="dashboard-section" id="dashboard">
+
+        <div class="section-heading left">
+
+            <div class="small-title">
+                <span></span>
+                SECURITY DASHBOARD
+            </div>
+
+            <h2>
+                Monitoring <span>Overview</span>
+            </h2>
+
+            <p>
+                Ringkasan dari seluruh pemeriksaan URL.
+            </p>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
+
+                <div class="stat-header">
+                    <span>TOTAL SCANNED</span>
+                    <div class="stat-icon blue-icon">⌕</div>
+                </div>
+
+                <strong id="totalCount">0</strong>
+
+                <p>
+                    URL diperiksa
+                </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <div class="stat-header">
+                    <span>LOW RISK</span>
+                    <div class="stat-icon green-icon">✓</div>
+                </div>
+
+                <strong
+                    id="lowCount"
+                    class="safe"
+                >
+                    0
+                </strong>
+
+                <p>
+                    Risiko rendah
+                </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <div class="stat-header">
+                    <span>MEDIUM RISK</span>
+                    <div class="stat-icon yellow-icon">!</div>
+                </div>
+
+                <strong
+                    id="mediumCount"
+                    class="warning"
+                >
+                    0
+                </strong>
+
+                <p>
+                    Perlu diperhatikan
+                </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <div class="stat-header">
+                    <span>HIGH RISK</span>
+                    <div class="stat-icon red-icon">×</div>
+                </div>
+
+                <strong
+                    id="highCount"
+                    class="danger"
+                >
+                    0
+                </strong>
+
+                <p>
+                    Risiko tinggi
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- LATEST SCANS -->
+
+        <div class="latest-panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <span class="small-title">
+                        RECENT ACTIVITY
+                    </span>
+
+                    <h3>
+                        Pemeriksaan Terbaru
+                    </h3>
+                </div>
+
+                <a href="#riwayat">
+                    Lihat semua →
+                </a>
+
+            </div>
+
+
+            <div id="latestChecks">
+
+                <div class="empty-history">
+                    Belum ada pemeriksaan.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIWAYAT -->
+    <section class="history-section" id="riwayat">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                <span></span>
+                SCAN HISTORY
+            </div>
+
+            <h2>
+                Riwayat <span>Pemeriksaan</span>
+            </h2>
+
+            <p>
+                Daftar URL yang telah dianalisis.
+            </p>
+
+        </div>
+
+
+        <div class="history-container">
+
+            <div id="historyList">
+
+                <div class="empty-history">
+                    Belum ada URL yang diperiksa.
+                </div>
+
+            </div>
+
+
+            <button
+                class="clear-button"
+                onclick="clearHistory()"
+            >
+                🗑 Hapus Semua Riwayat
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG -->
+    <section class="about-section" id="tentang">
+
+        <div class="section-heading left">
+
+            <div class="small-title">
+                <span></span>
+                LEARN ABOUT PHISHING
+            </div>
+
+            <h2>
+                Kenali Ancaman
+                <span>Phishing</span>
+            </h2>
+
+            <p>
+                Phishing adalah upaya penipuan digital yang
+                bertujuan mendapatkan informasi sensitif
+                dengan menyamarkan diri sebagai pihak yang
+                terpercaya.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <div class="feature-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    URL Mencurigakan
+                </h3>
+
+                <p>
+                    Perhatikan alamat website yang terlalu
+                    panjang, menggunakan alamat IP, atau
+                    memiliki pola yang tidak biasa.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <div class="feature-icon">
+                    🎣
+                </div>
+
+                <h3>
+                    Link Palsu
+                </h3>
+
+                <p>
+                    Phishing dapat menggunakan website yang
+                    dibuat menyerupai layanan atau platform
+                    yang dikenal pengguna.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <div class="feature-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Lindungi Data
+                </h3>
+
+                <p>
+                    Jangan sembarangan memasukkan password,
+                    kode OTP, atau data pribadi pada website
+                    yang belum kamu percaya.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ⌁ PHISH<span>GUARD</span>
+        </div>
+
+        <p>
+            Cyber Security Project
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © 2026 PhishGuard. Educational Project.
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
